@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'base1.html' %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% block content %}
+
+    <title>World of Stocks</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <form action = "{% url 'home' %}" method="post" class="col-md"">
+        {% csrf_token %}
+        <div class=" input-group">
+
+        <input class="form-control mr-sm-2" type="search" placeholder="Get Stock Quote" aria-label="Search" name='ticker'>
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-info">Stock Quote</button>
+        </div>
+        </div>
+        </form>
+    </nav>
+    <br/>
+    <br/>
+
+    {% if ticker %}
+      {{ ticker }}
+    {% endif %}
+
+    {% if api %}
+          {% if api == 'Error...' %}
+
+          you have typed in wrong stock, please do type another one
+
+          {% else %}
+
+          <h2>{{ api.companyName}}</h2><br/>
+          PercentChange: {{ api.changePercent }}<br/>
+          Price: {{ api.latestPrice }}<br/>
+          MarketCap: {{ api.marketCap }}<br/>
+          PERatio: {{ api.peRatio }}<br/>
+          PreviousClose: {{ api.previousClose }}<br/>
+
+          <!-- {% for key, value in api.items %}
+              {{ key }}: {{ value }}<br/>
+
+          {% endfor %}
+
+          {% endif %}
+
+      {% endif %} -->
+
+
+  </body>
+</html>
+
+{% endblock %}

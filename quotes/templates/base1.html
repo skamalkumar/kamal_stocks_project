@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cerulean/bootstrap.min.css"
+    integrity="sha512-dQLT/B7byn2LjN/DN4zeBKpwGV6qbidV0XiMRWQOL7TGrV7FkZFldkGG+DGMU+CQnMTcRZlUI7GMWt1j6akNew=="
+    crossorigin="anonymous" />
+  <title>Stock portfolio! </title>
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a href="../" class="navbar-brand">Stock Quotes <span style="color: rgb(39, 117, 161);"> <strong> - Django
+            Framework</strong>
+        </span> </a>
+        <li class="nav-item">
+          <a class="navbar-brand" href="{% url 'add_stock' %}"><span style="color: rgb(255, 255, 255);"> <strong> Add Stock </strong>
+            </span> </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="navbar-brand" href="{% url 'delete_stock' %}"><span style="color: rgb(255, 255, 255);"> <strong> Delete Stock </strong>
+            </span> </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="navbar-brand" href="{% url 'donation' %}"><span style="color: rgb(255, 255, 255);"> <strong> Donation </strong>
+            </span> </a>
+        </li>
+
+
+
+
+      <!-- <a href="https://openweathermap.org" class="navbar-tech">OpenWeather - Get Your API</a> -->
+    </div>
+  </div>
+
+  <br /><br /> <br>
+  <!-- {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+<strong>{{ message }}</strong>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+      {% endfor %}
+  {% endif %} -->
+
+  <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top:-50px">
+    <h1 class="display-5">Quotations for Stocks</h1>
+    <h5>Using Python Language and Django Framework</h5>
+
+    <img src="{% static 'images/StockMarket.png' %}" class="image" style="width:200px; margin-bottom:-100px; ">
+  </div>
+
+
+
+  {% block content %}
+
+
+  {% endblock %}
+
+  <br> <br>
+
+</body>
+
+</html>
